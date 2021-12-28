@@ -1,0 +1,20 @@
+<h1>Events</h1>
+
+<% if session[:current_user_id] %>  
+  <%= link_to "Logout", sessions_path %>
+<% else %>
+  <%= link_to "Login", new_session_path %>
+  <%= link_to "Register", new_user_path %>
+<% end %>
+
+<ul>
+  <%= link_to "New Event", new_event_path %>
+</ul>
+
+<ul>
+  <% @events.each do |event| %>
+    <li>
+      <%= link_to event.name, event %>
+    </li>
+  <% end %>
+</ul>
