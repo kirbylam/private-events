@@ -6,3 +6,10 @@
     <li><%= link_to event.name, event %></li>
   <% end %>
 </ul>
+
+<h2>Events Attending</h2>
+<ul>
+  <% @events_attending.each do |event| %>
+    <li><%= link_to event.name, event %></li>
+  <% end %>
+</ul>

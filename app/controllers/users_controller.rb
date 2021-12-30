@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @created_events = Event.where(creator_id: @user.id)
+    @events_attending = @user.attended_events
   end
   
   def new
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    if @user.save && @user.valid?
+    if @user.save
       session[:current_user_id] = @user.id
       redirect_to root_path
     else

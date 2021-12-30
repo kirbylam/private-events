@@ -1,8 +1,20 @@
 <h1><%= @event.name %></h1>
 
+<h2>About</h2>
+
 <ul>
   <li><%= @event.location %></li>
   <li><%= @event.date %></li>
+</ul>
+
+<%= button_to 'Join Event', event_attendees_path(id: @event.id) %>
+
+<h2>People Attending</h2>
+
+<ul>
+<% @attendees.each do |person| %>
+  <li><%= person %></li>
+<% end %>
 </ul>
 
 <%= link_to 'Back to index', root_path %>
