@@ -1,7 +1,8 @@
 <h1><%= @event.name %></h1>
 
-<p><%= @event.location %></p>
+<ul>
+  <li><%= @event.location %></li>
+  <li><%= @event.date %></li>
+</ul>
 
-<p><%= @event.date %></p>
-
-<%= link_to "Back to index", root_path %>
+<%= link_to 'Back to index', root_path %>

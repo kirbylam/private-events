@@ -1,0 +1,6 @@
+      invoke  active_record
+      create    db/migrate/20211228051316_create_event_attendees.rb
+      create    app/models/event_attendee.rb
+      invoke    test_unit
+      create      test/models/event_attendee_test.rb
+      create      test/fixtures/event_attendees.yml

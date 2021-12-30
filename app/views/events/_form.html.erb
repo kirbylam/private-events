@@ -1,7 +1,7 @@
 <%= form_with model: event do |form| %>
   <% if event.errors.any? %>
-    <div id="error_description">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+    <div id='error_description'>
+      <h2><%= pluralize(event.errors.count, 'error') %> prohibited his event from being saved:</h2>
       <ul>
         <% event.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -10,11 +10,11 @@
     </div>
   <% end %>
 
-  <%= form.label :name %>
-  <%= form.text_field :name, placeholder: "event name" %>
-  <%= form.label :location %>
-  <%= form.text_field :location, placeholder: "location name" %>
-  <%= form.label :date %>
-  <%= form.date_field :date %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name, placeholder: 'Name of event...' %><br>
+  <%= form.label :location %><br>
+  <%= form.text_field :location, placeholder: 'Name of location...' %><br>
+  <%= form.label :date %><br>
+  <%= form.date_field :date %><br>
   <%= form.submit %>
 <% end %>

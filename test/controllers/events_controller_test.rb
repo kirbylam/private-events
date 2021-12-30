@@ -5,4 +5,9 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     get events_index_url
     assert_response :success
   end
+
+  test "should get new" do
+    get events_new_url
+    assert_response :success
+  end
 end

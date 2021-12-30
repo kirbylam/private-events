@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :is_signed_in?, only: [:new, :create]
+  before_action :require_login, only: [:logged_in, :new, :create]
   
   def index
     @events = Event.all
@@ -25,16 +25,12 @@ class EventsController < ApplicationController
   end
 
   private
+    def require_login
+      return true if session[:current_user_id]
+      redirect_to new_session_path
+    end
+
     def event_params
       params.require(:event).permit(:name, :location, :date)
     end
-
-    def is_signed_in?
-      if session[:current_user_id].nil?
-        redirect_to new_session_path if session[:current_user_id].is_nil?
-      else
-        true
-      end
-    end
 end
-
