@@ -10,7 +10,7 @@
 <h2>Events Attending</h2>
 <h3>Past Events</h3>
 <ul>
-  <% @events_attending.each do |event| %>
+  <% @user.attended_events.where("date <= ?", Date.today).each do |event| %>
     <% if event.date <= Date.today %>
       <li><%= link_to event.name, event %></li>
     <% end %>
@@ -18,7 +18,7 @@
 </ul>
 <h3>Future Events</h3>
 <ul>
-  <% @events_attending.each do |event| %>
+  <% @user.attended_events.where("date > ?", Date.today).each do |event| %>
     <% if event.date > Date.today %>
       <li><%= link_to event.name, event %></li>
     <% end %>
