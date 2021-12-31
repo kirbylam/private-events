@@ -1,0 +1,11 @@
+<div align='right'>
+<%= link_to 'Index', root_path %>
+<% if session[:current_user_id] %>
+  <%= link_to 'Profile', user_path(session[:current_user_id]) %>
+  <%= link_to 'Logout', sessions_path, method: :delete %>
+<% else %>
+  <%= link_to 'Login', new_sessions_path %>
+  <%= link_to 'Register', new_user_path %>
+<% end %>
+</div>
+

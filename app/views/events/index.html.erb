@@ -1,12 +1,6 @@
-<h1>All Events</h1>
+<%= render 'layouts/header' %>
 
-<% if session[:current_user_id] %>
-    <%= link_to 'Logout', sessions_path, method: :delete %>
-    <%= link_to 'Profile', user_path(session[:current_user_id]) %>
-<% else %>
-  <%= link_to 'Login', new_sessions_path %>
-  <%= link_to 'Register', new_user_path %>
-<% end %>
+<h1>All Events</h1>
 
 <%= link_to 'New Event', new_event_path %>
 
