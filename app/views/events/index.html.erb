@@ -12,17 +12,13 @@
 
 <h2>Past Events</h2>
 <ul>
-  <% @events.where("date <= ?", Date.today).each do |event| %>
-    <li>
-      <%= link_to event.name, event %>
-    </li>
+  <% Event.past_events.each do |event| %>
+    <li><%= link_to event.name, event %></li>
   <% end %>
 </ul>
 <h2>Future Events</h2>
 <ul>
-  <% @events.where("date > ?", Date.today).each do |event| %>
-    <li>
-      <%= link_to event.name, event %>
-    </li>
+  <% Event.future_events.each do |event| %>
+    <li><%= link_to event.name, event %></li>
   <% end %>
 </ul>
